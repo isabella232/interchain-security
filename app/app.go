@@ -426,6 +426,11 @@ func New(
 		app.IBCKeeper.ConnectionKeeper,
 		app.IBCKeeper.ClientKeeper,
 		app.SlashingKeeper,
+		app.BankKeeper,
+		app.AccountKeeper,
+		&app.TransferKeeper,
+		app.IBCKeeper,
+		authtypes.FeeCollectorName,
 	)
 
 	// register the slashing hooks, do it here so that
@@ -445,6 +450,8 @@ func New(
 		app.IBCKeeper.ClientKeeper,
 		app.StakingKeeper,
 		app.SlashingKeeper,
+		app.AccountKeeper,
+		authtypes.FeeCollectorName,
 	)
 	parentModule := ibcparent.NewAppModule(&app.ParentKeeper)
 

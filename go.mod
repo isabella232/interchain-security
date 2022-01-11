@@ -11,8 +11,16 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/gravity-devs/liquidity v1.4.5
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.7.3 // indirect
+	github.com/improbable-eng/grpc-web v0.14.1 // indirect
+	github.com/jhump/protoreflect v1.9.0 // indirect
+	github.com/lib/pq v1.10.2 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/onsi/ginkgo v1.16.4 // indirect
+	github.com/onsi/gomega v1.13.0 // indirect
 	github.com/prometheus/common v0.30.0 // indirect
 	github.com/rakyll/statik v0.1.7
+	github.com/regen-network/cosmos-proto v0.3.1 // indirect
 	github.com/rs/zerolog v1.25.0 // indirect
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.3.0
@@ -21,6 +29,7 @@ require (
 	github.com/tendermint/spm v0.1.9
 	github.com/tendermint/tendermint v0.34.14
 	github.com/tendermint/tm-db v0.6.4
+	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a // indirect
 	google.golang.org/genproto v0.0.0-20220118154757-00ab72f36ad5
 	google.golang.org/grpc v1.44.0
 	google.golang.org/protobuf v1.27.1
