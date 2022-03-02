@@ -290,7 +290,7 @@ func (am AppModule) OnChanOpenAck(
 	var md parenttypes.HandshakeMetadata
 	if err := (&md).Unmarshal([]byte(counterpartyMetadata)); err != nil {
 		return sdkerrors.Wrapf(ccv.ErrInvalidHandshakeMetadata,
-			"error unmarshalling ibc-ack metadata: ", err)
+			"error unmarshalling ibc-ack metadata: \n%v; \nmetadata: %v", err, counterpartyMetadata)
 	}
 
 	if md.Version != ccv.Version {
@@ -307,7 +307,10 @@ func (am AppModule) OnChanOpenAck(
 
 	// reuse the connection hops for this channel for the
 	// transfer channel being created.
-	connHops := am.channelKeeper.GetChannel(ctx, portID, channelID).ConnectionHops
+	connHops, err := am.keeper.GetConnectionHops(ctx, portID, channelID)
+	if err != nil {
+		return err
+	}
 
 	distrTransferMsg := channeltypes.NewMsgChannelOpenInit(
 		transfertypes.PortID,
@@ -322,7 +325,7 @@ func (am AppModule) OnChanOpenAck(
 	if err != nil {
 		return err
 	}
-	am.keeper.SetDistributionTransmissionChannel(ctx, resp.ChannelID)
+	am.keeper.SetDistributionTransmissionChannel(ctx, resp.ChannelId)
 
 	return nil
 }
